@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>InputSelector-AngularJS组件化</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="components/inputSelector/inputSelector.css">
+  <script src="vendor/jquery/jquery.js"></script>
+  <script src="vendor/angular/angular.js"></script>
+  <script src="app.module.js"></script>
+  <script src="components/inputSelector/inputSelector.module.js"></script>
+  <script src="components/inputSelector/inputSelector.component.js"></script>
+</head>
+
+<body ng-controller="MainCtrl as ctrl">
+
+<div style="height: 150px;">
+
+  <input-selector
+    label="ctrl.label"
+    datalist="ctrl.dataList"
+    on-load="ctrl.load()"
+    on-save="ctrl.save(text)"
+    on-changed="ctrl.changed(text)"
+    on-delete="ctrl.delete(text)"
+  ></input-selector>
+
+  <input-selector
+    label="ctrl.label"
+    datalist="ctrl.dataListA"
+    on-load="ctrl.loadA()"
+    on-save="ctrl.saveA(text)"
+    on-changed="ctrl.changedA(text)"
+    on-delete="ctrl.deleteA(text)"
+  ></input-selector>
+
+</div>
+
+</body>
+
+</html>

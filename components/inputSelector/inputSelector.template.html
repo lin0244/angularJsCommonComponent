@@ -1,0 +1,74 @@
+<div class="input-selector-wrapper"
+  id="{{id}}"
+>
+  <label part="label">{{label}}</label>
+  <div part="input">
+    <!--输入框-->
+    <input
+      type="text"
+      placeholder="请输入"
+      ng-model="text"
+      part="filterInput"
+      ng-focus="showFilteredDataList($event)"
+      ng-keydown="traverseDataList($event)";
+      ng-mouseleave="autoHideDataList($event)"
+      ng-mouseover="clearAutoHideTimer()"
+      ng-blur="autoHideDataList($event)"
+    >
+
+    <!--显示全部信息按钮-->
+    <div
+      part="allListBtn"
+      ng-click="showAllDataList($event)"
+      ng-mouseleave="autoHideDataList($event)"
+    >
+      <div part="triangle"></div>
+      <input
+        part="hiddenInput"
+        type="text"
+        ng-keydown="traverseDataList($event)"
+        ng-blur="autoHideDataList($event)"
+      >
+    </div>
+
+    <!--筛选列表-->
+    <div part="filteredList"
+         ng-mouseover="clearAutoHideTimer()"
+         ng-mouseleave="autoHideDataList($event)"
+    >
+      <ul>
+        <li
+          ng-repeat="item in $ctrl.datalist | filter: text"
+          ng-mouseover="changeDataItemCls($event)"
+          ng-click="changedData($event)"
+          title = {{item}}
+        >
+          {{item}}
+          <span title="删除！"></span>
+        </li>
+      </ul>
+    </div>
+
+    <!--全部列表[代码同上]-->
+    <div part="allList"
+         ng-mouseover="clearAutoHideTimer()"
+         ng-mouseleave="autoHideDataList($event)"
+    >
+      <ul>
+        <li
+          ng-repeat="item in $ctrl.datalist"
+          ng-mouseover="changeDataItemCls($event)"
+          ng-click="changedData($event)"
+          title = {{item}}
+        >
+          {{item}}
+          <span title="删除！"></span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!--保存按钮-->
+  <button part="saveBtn" ng-click="save()" type="button">保存</button>
+</div>
