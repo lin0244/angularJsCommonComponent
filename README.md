@@ -1,0 +1,2 @@
+# angularJsCommonComponent
+开发设计基于angularjs的通用UI组件
