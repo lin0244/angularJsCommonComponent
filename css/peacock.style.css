@@ -152,3 +152,6 @@
   border-radius: 50%;
   background: #a2a2a5;
 }
+.menu-wrapper {
+  display: inline-block;
+}

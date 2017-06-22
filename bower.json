@@ -14,6 +14,12 @@
   ],
   "dependencies": {
     "angular": "angularjs#^1.6.4",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7",
+    "react": "^15.6.1",
+    "font-awesome": "^4.7.0",
+    "PageTransitions": "*",
+    "hover": "^2.1.1",
+    "ramda": "^0.24.1"
   }
 }
