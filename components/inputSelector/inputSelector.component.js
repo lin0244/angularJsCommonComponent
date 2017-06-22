@@ -1,7 +1,7 @@
 angular
   .module('inputSelector')
   .component('inputSelector',{
-    templateUrl: 'components/inputSelector/inputSelector.template.html',
+    templateUrl: '../../components/inputSelector/inputSelector.template.html',
     controller:['$scope',function ($scope) {
       var ctrl = this;
 
@@ -171,10 +171,7 @@ angular
       };
       //自动隐藏列表
       $scope.autoHideDataList = function (event) {
-        return;
-
         $scope.clearAutoHideTimer();
-
         var $target = $(event.currentTarget),
           tagName = event.currentTarget.tagName.toLocaleLowerCase(),
           $parent = $target.parent(),
@@ -188,7 +185,7 @@ angular
 
         $scope.timer = setTimeout(function () {
           closeListDom($dataList);
-        },2000);
+        },1000);
       }
 
       //关闭列表

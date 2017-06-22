@@ -1,0 +1,237 @@
+//变量定义
+@brand-primary: darken(#428bca,6.5%);
+@brand-success: #5cb85c;
+@brand-info: #5bc0de;
+@brand-warning:#f0ad4e;
+@brand-danger: #d9534f;
+@brand-error : #8B2500;
+@brand-normal :#5C5C5C;
+@brand-gray : #6C7B8B;
+@brand-black: #757575;
+
+@border-color: darken(@btn-black-bg,5%);
+@triangle-color:#4c4242;
+
+//按钮
+@btn-default-color:              #333;
+@btn-default-bg:                 #fff;
+@btn-default-border:             #ccc;
+
+@btn-primary-color:              #fff;
+@btn-primary-bg:                 @brand-primary;
+@btn-primary-border:             darken(@btn-primary-bg, 5%);
+
+@btn-success-color:              #fff;
+@btn-success-bg:                 @brand-success;
+@btn-success-border:             darken(@btn-success-bg, 5%);
+
+@btn-info-color:                 #fff;
+@btn-info-bg:                    @brand-info;
+@btn-info-border:                darken(@btn-info-bg, 5%);
+
+@btn-warning-color:              #fff;
+@btn-warning-bg:                 @brand-warning;
+@btn-warning-border:             darken(@btn-warning-bg, 5%);
+
+@btn-danger-color:               #fff;
+@btn-danger-bg:                  @brand-danger;
+@btn-danger-border:              darken(@btn-danger-bg, 5%);
+
+@btn-error-color:                #fff;
+@btn-error-bg:                   @brand-error;
+@btn-error-border:               darken(@btn-error-bg,5%);
+
+@btn-normal-color:                #fff;
+@btn-normal-bg:                   @brand-normal;
+@btn-normal-border:               darken(@btn-normal-bg,5%);
+
+@btn-gray-color:                #fff;
+@btn-gray-bg:                   @brand-gray;
+@btn-gray-border:               darken(@btn-gray-bg,5%);
+
+@btn-black-color:                #fff;
+@btn-black-bg:                   @brand-black;
+@btn-black-border:               darken(@btn-black-bg,5%);
+
+
+//公共函数
+.btn-init(){
+  padding:6px 12px;
+  border:1px solid @border-color;
+  float: left;
+  border-left:none;
+  background: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-variant(@color;@background;@border){
+  color: @color !important;
+  background-color: @background !important;
+  border-color: @border !important;
+
+  &:focus {
+    color: @color !important;
+    background-color: darken(@background,10%) !important;
+    border-color: darken(@border,25%) !important;
+  }
+  &:hover{
+    color: @color !important;
+    background-color: darken(@background,10%) !important;
+    border-color: darken(@border,12%) !important;
+  }
+  &:active{
+    color: @color !important;
+    background-color: darken(@background,10%) !important;
+    border-color: darken(@border,12%) !important;
+  }
+
+  &:disabled,&:disabled:focus:focus,&:disabled:hover,&:disabled:active {
+    color: #fff !important;
+    background: #c5c6c7 !important;
+    border: darken(#c5c6c7,5%) !important;
+    cursor: default !important;
+  }
+}
+
+
+//input-selector 组件样式
+
+.input-selector-wrapper{
+  display: inline-block;
+
+  *{
+    font-size:13px;
+    font-family:"微软雅黑","Myriad Pro", "Hiragino Sans GB", "Microsoft YaHei",  Calibri, Helvetica, tahoma, arial, simsun, "宋体", sans-serif;
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    list-style: none;
+  }
+
+  [part=label]{
+    display: inline-block;
+    padding:6px;
+    float: left;
+    border:1px solid @border-color;
+    background: lighten(@border-color,15%);
+    border-right:none;
+    color: #fff;
+  }
+  [part=input]{
+    display: inline-block;
+    float: left;
+    position: relative;
+
+    input:first-child{
+      color: #333;
+      padding: 6px;
+      border:1px solid @border-color;
+      float: left;
+      outline:none;
+
+      &:focus{
+        border-color: darken(@border-color,10%);
+      }
+    }
+  }
+
+  [part=allListBtn]{
+    position: absolute;
+    top:1px;
+    right:1px;
+    width: 25px;
+    bottom:1px;
+    background: #fff;
+    cursor: pointer;
+
+    [part=triangle]{
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      width:0;
+      height:0;
+      border-top:10px solid @triangle-color;
+      border-left:5px solid transparent;
+      border-right:5px solid transparent;
+    }
+
+    &:hover{
+      //background: darken(#fff,6%);
+      [part=triangle]{
+        border-top-color: darken(@triangle-color,40%);
+      }
+    }
+  }
+
+  [part=hiddenInput]{
+    position: absolute;
+    clip:rect(0,0,0,0);
+  }
+
+  [part=saveBtn]{
+    .btn-init();
+    .btn-variant(@btn-black-color,@btn-black-bg,@btn-black-border);
+  }
+
+
+  [part=filteredList],[part=allList]{
+    display: none;
+    position: absolute;
+    top:calc(100% + 1px);
+    left:1px;
+    right:1px;
+    z-index: 999;
+    box-shadow: 0px 1px 5px #89898c;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    //max-height:100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: #333;
+    background-color: #fff;
+
+    li{
+      padding: 6px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      cursor: pointer;
+      transition:all 0.1s ease-in;
+      position: relative;
+
+      &:hover{
+        //background: #0f7eff;
+        //color: #fff;
+      }
+      &:last-child{
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+      &.cur-hover-item{
+        background: #0f7eff;
+        color: #fff;
+
+        span {
+          display: block;
+          position: absolute;
+          top:50%;
+          right:5px;
+          width:15px;
+          height:15px;
+          border-radius:3px;
+          transform:translateY(-50%);
+          background: #88888c;
+          box-shadow: 0px 0px 3px #fff;
+          transition:all 0.13s ease-out;
+          padding:0 !important;
+          &:hover{
+            border-radius: 50%;
+            background: lighten(#88888c,10%);
+          }
+        }
+      }
+    }
+  }
+}

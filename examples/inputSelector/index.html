@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>inputSelector test-case</title>
+  <link rel="stylesheet" href="../../css/peacock.style.css">
+  <script src="../../vendor/jquery/dist/jquery.js"></script>
+  <script src="../../vendor/angular/angular.js"></script>
+  <script src="app.module.js"></script>
+  <script src="../../components/inputSelector/inputSelector.module.js"></script>
+  <script src="../../components/inputSelector/inputSelector.component.js"></script>
+</head>
+
+<body ng-controller="MainCtrl as ctrl">
+
+<div style="height: 150px;">
+
+  <input-selector
+    label="ctrl.label"
+    datalist="ctrl.dataList"
+    on-load="ctrl.load()"
+    on-save="ctrl.save(text)"
+    on-changed="ctrl.changed(text)"
+    on-delete="ctrl.delete(text)"
+  ></input-selector>
+
+</div>
+
+</body>
+</html>
