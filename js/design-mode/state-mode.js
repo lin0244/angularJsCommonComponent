@@ -22,6 +22,7 @@
     // 包含流程处理需要的业务数据对象
     this.businessVO = null;
     this.doWork = function () {
+      debugger;
       if (typeof this.state == 'function') {
         this.state = this.state(this);
         this.doWork();

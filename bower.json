@@ -20,6 +20,7 @@
     "font-awesome": "^4.7.0",
     "PageTransitions": "*",
     "hover": "^2.1.1",
-    "ramda": "^0.24.1"
+    "ramda": "^0.24.1",
+    "javascript-state-machine": "^3.0.1"
   }
 }
