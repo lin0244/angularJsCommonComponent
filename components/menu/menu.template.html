@@ -1,27 +1,109 @@
-<div class="menu-wrapper">
-  <div part="primary_category">
+<div class="menu-wrapper" ng-cloak>
+  <!-- 网站logo -->
+  <div part="logo">
+
+  </div>
+
+  <!-- 第一分类 -->
+  <div part="categories">
     <ul>
-      <li>
-        <a href="#">最新活动</a>
-      </li>
-      <li>
-        <a href="#">产品</a>
-      </li>
-      <li>
-        <a href="#">解决方案</a>
-      </li>
-      <li>
-        <a href="#">数据</a>
-      </li>
-      <li>
-        <a href="#">智能</a>
-      </li>
-      <li>
-        <a href="#">安全</a>
-      </li>
-      <li>
-        <a href="#">云市场</a>
+      <li
+        part="primary_category"
+        ng-repeat="primaryCategory in $ctrl.data.categories"
+      >
+        <a ng-href="{{primaryCategory.url}}">{{primaryCategory.name}}</a>
+        <div ng-if="primaryCategory.tag" part="hot">{{primaryCategory.tag}}</div>
+        <div part="secondary_categories">
+          <div
+            part="secondary_category"
+            ng-repeat="secondary_category in primaryCategory.children"
+          >
+            <h2>
+              <a ng-href="{{secondary_category.url}}">{{secondary_category.name}}</a>
+            </h2>
+            <div part="third_categories">
+              <ul>
+                <li ng-repeat="third_category in secondary_category.children">
+                  <a ng-href="{{third_category.url}}">{{third_category.name}}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </li>
     </ul>
+  </div>
+
+  <!--登录信息-->
+  <div part="login_out">
+    <!--已登录-->
+    <div ng-if="$ctrl.data.user.login">
+      <div part="user">
+        <a href="#">
+          <img ng-src="{{$ctrl.data.user.detail.avatar}}" alt="">
+          <span>{{$ctrl.data.user.detail.userName}}</span>
+          <mark>{{$ctrl.data.user.detail.msgNumber}}</mark>
+        </a>
+
+        <div part="user-behaviors">
+          <div>
+            <h2>账户信息</h2>
+            <ul>
+              <li>
+                <a href="#">个人资料</a>
+              </li>
+              <li>
+                <a href="#">积分中心</a>
+              </li>
+              <li>
+                <a href="#">修改密码</a>
+              </li>
+              <li>
+                <a href="#">订阅管理</a>
+              </li>
+              <li>
+                <a href="#">私有产品申请</a>
+              </li>
+              <li>
+                <a href="#">退出登录</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2>公告</h2>
+            <ul>
+              <li>
+                <a href="#">站内消息</a>
+              </li>
+              <li>
+                <a href="#">工单管理消息</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2>工单管理</h2>
+            <ul>
+              <li>
+                <a href="#">创建工单</a>
+              </li>
+              <li>
+                <a href="#">工单汇总</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--未登录-->
+    <div ng-if="!$ctrl.data.user.login">
+      <ul>
+        <li>
+          <a href="#">登录</a>
+        </li>
+        <li>
+          <a href="#">注册</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

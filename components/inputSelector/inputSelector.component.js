@@ -12,7 +12,6 @@ angular
         $scope.timer = null;
         $scope.id = uuid();
 
-
         //自定义高度
         setTimeout(function () {
           var $inputSelector = $('[id='+ $scope.id +']'),
