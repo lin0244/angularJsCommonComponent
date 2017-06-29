@@ -1,0 +1,9 @@
+.triangle_arrow_down(@width:12px,@height:6px,@backgroundColor:#b7afa5){
+  @borderTopWidth:@height;
+  @borderLRWidth:@width/2;
+  height:0;
+  width:0;
+  border-top  : @borderTopWidth solid @backgroundColor;
+  border-left : @borderLRWidth solid transparent;
+  border-right: @borderLRWidth solid transparent;
+}

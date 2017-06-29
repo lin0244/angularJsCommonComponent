@@ -3,7 +3,7 @@
   "user" : {
     "login":true,
     "detail":{
-      "avatar":"http://www.easyicon.net/api/resizeApi.php?id=1195770&size=128",
+      "avatar":"http://p1.qzone.la/Upload/20160229/20160229173051360933.jpg",
       "userName":"benjamin",
       "msgNumber":8
     }
@@ -20,11 +20,13 @@
           "children":[
             {
               "name":"市场总览",
-              "url" :"https://www.cn-abs.com/Market/MarketSummary.aspx"
+              "url" :"https://www.cn-abs.com/Market/MarketSummary.aspx",
+              "lock": true
             },
             {
               "name":"细分市场",
-              "url" :"https://www.cn-abs.com/Market/AssetSummaryV2.aspx"
+              "url" :"https://www.cn-abs.com/Market/AssetSummaryV2.aspx",
+              "lock": false
             },
             {
               "name":"机构份额",

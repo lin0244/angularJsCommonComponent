@@ -1,109 +1,124 @@
 <div class="menu-wrapper" ng-cloak>
-  <!-- 网站logo -->
-  <div part="logo">
+  <div part="center">
+    <!-- 网站logo -->
+    <div part="logo">
+      <a href="https://www.cn-abs.com/">
+        <img ng-src="{{logo}}" alt="LOGO">
+        <div part="company_name">
+          <h2>中国资产证券化分析</h2>
+          <h3>China Securitization Analytics</h3>
+        </div>
+      </a>
+    </div>
 
-  </div>
+    <!-- 第一分类 -->
+    <div part="categories">
+      <ul part="primary_categories">
+        <li
+          part="primary_category"
+          ng-repeat="primaryCategory in $ctrl.data.categories"
+        >
+          <a
+            part="primary_category_a"
+            ng-href="{{primaryCategory.url}}"
+            ng-click="showSubList($event)"
+          >{{primaryCategory.name}}</a>
+          <div ng-if="primaryCategory.tag" part="hot">{{primaryCategory.tag}}</div>
+          <div part="secondary_categories">
+            <div
+              part="secondary_category"
+              ng-repeat="secondary_category in primaryCategory.children"
+            >
+              <h2>
+                <a ng-href="{{secondary_category.url}}">{{secondary_category.name}}</a>
+              </h2>
+              <div part="third_categories">
+                <ul>
+                  <li ng-repeat="third_category in secondary_category.children">
+                    <a ng-href="{{third_category.url}}">{{third_category.name}}</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          `-
+        </li>
+      </ul>
+    </div>
 
-  <!-- 第一分类 -->
-  <div part="categories">
-    <ul>
-      <li
-        part="primary_category"
-        ng-repeat="primaryCategory in $ctrl.data.categories"
-      >
-        <a ng-href="{{primaryCategory.url}}">{{primaryCategory.name}}</a>
-        <div ng-if="primaryCategory.tag" part="hot">{{primaryCategory.tag}}</div>
-        <div part="secondary_categories">
-          <div
-            part="secondary_category"
-            ng-repeat="secondary_category in primaryCategory.children"
-          >
-            <h2>
-              <a ng-href="{{secondary_category.url}}">{{secondary_category.name}}</a>
-            </h2>
-            <div part="third_categories">
+    <!--登录信息-->
+    <div part="login_out">
+      <!--已登录-->
+      <div ng-if="$ctrl.data.user.login" part="logged">
+        <div part="userInfo">
+          <a part="user" href="#" ng-click="showUserInfo()" ng-class="{'cur':userInfoVisable}">
+            <img ng-src="{{$ctrl.data.user.detail.avatar}}" alt="">
+            <span>{{$ctrl.data.user.detail.userName}}</span>
+            <i>三角形</i>
+            <mark>{{$ctrl.data.user.detail.msgNumber}}</mark>
+          </a>
+
+          <div part="user-rights" ng-show="userInfoVisable">
+            <div part="user-right">
+              <h2>账户信息</h2>
               <ul>
-                <li ng-repeat="third_category in secondary_category.children">
-                  <a ng-href="{{third_category.url}}">{{third_category.name}}</a>
+                <li>
+                  <a href="https://www.cn-abs.com/Account/Profile.aspx">个人资料</a>
+                </li>
+                <li>
+                  <a href="https://www.cn-abs.com/Account/Balance.aspx">积分中心</a>
+                </li>
+                <li>
+                  <a href="https://www.cn-abs.com/Account/ChangePassword.aspx">修改密码</a>
+                </li>
+                <li>
+                  <a href="https://www.cn-abs.com/Account/SubManage.aspx">订阅管理</a>
+                </li>
+                <li>
+                  <a href="https://www.cn-abs.com/Deal/PrivateDealApply.aspx">私有产品申请</a>
+                </li>
+                <li>
+                  <a href="https://www.cn-abs.com/Account/login.aspx">退出登录</a>
+                </li>
+              </ul>
+            </div>
+            <div part="user-right">
+              <h2>公告</h2>
+              <ul>
+                <li>
+                  <a href="https://www.cn-abs.com/Account/Message.aspx?type=public">站内消息</a>
+                  <mark>{{$ctrl.data.user.detail.msgNumber}}</mark>
+                </li>
+                <li>
+                  <a href="https://www.cn-abs.com/Account/Message.aspx?type=ticket">工单管理消息</a>
+                </li>
+              </ul>
+            </div>
+            <div part="user-right">
+              <h2>工单管理</h2>
+              <ul>
+                <li>
+                  <a href="https://www.cn-abs.com/Tickets/Ticket.aspx">创建工单</a>
+                </li>
+                <li>
+                  <a href="https://www.cn-abs.com/Tickets/TicketSummary.aspx">工单汇总</a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-      </li>
-    </ul>
-  </div>
-
-  <!--登录信息-->
-  <div part="login_out">
-    <!--已登录-->
-    <div ng-if="$ctrl.data.user.login">
-      <div part="user">
-        <a href="#">
-          <img ng-src="{{$ctrl.data.user.detail.avatar}}" alt="">
-          <span>{{$ctrl.data.user.detail.userName}}</span>
-          <mark>{{$ctrl.data.user.detail.msgNumber}}</mark>
-        </a>
-
-        <div part="user-behaviors">
-          <div>
-            <h2>账户信息</h2>
-            <ul>
-              <li>
-                <a href="#">个人资料</a>
-              </li>
-              <li>
-                <a href="#">积分中心</a>
-              </li>
-              <li>
-                <a href="#">修改密码</a>
-              </li>
-              <li>
-                <a href="#">订阅管理</a>
-              </li>
-              <li>
-                <a href="#">私有产品申请</a>
-              </li>
-              <li>
-                <a href="#">退出登录</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h2>公告</h2>
-            <ul>
-              <li>
-                <a href="#">站内消息</a>
-              </li>
-              <li>
-                <a href="#">工单管理消息</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h2>工单管理</h2>
-            <ul>
-              <li>
-                <a href="#">创建工单</a>
-              </li>
-              <li>
-                <a href="#">工单汇总</a>
-              </li>
-            </ul>
-          </div>
-        </div>
       </div>
-    </div>
-    <!--未登录-->
-    <div ng-if="!$ctrl.data.user.login">
-      <ul>
-        <li>
-          <a href="#">登录</a>
-        </li>
-        <li>
-          <a href="#">注册</a>
-        </li>
-      </ul>
+      <!--未登录-->
+      <div ng-if="!$ctrl.data.user.login" part="not_loged">
+        <ul>
+          <li>
+            <a href="https://www.cn-abs.com/Account/Login.aspx">登录</a>
+          </li>
+          <li>
+            <a href="https://www.cn-abs.com/Apply/Apply.aspx">注册</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

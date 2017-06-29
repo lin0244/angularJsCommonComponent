@@ -21,6 +21,7 @@
     "PageTransitions": "*",
     "hover": "^2.1.1",
     "ramda": "^0.24.1",
-    "javascript-state-machine": "^3.0.1"
+    "javascript-state-machine": "^3.0.1",
+    "bowser": "browser#^1.7.0"
   }
 }

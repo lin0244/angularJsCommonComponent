@@ -1,6 +1,6 @@
 angular
   .module('inputSelector')
-  .component('inputSelector',{
+  .component('ccInputSelector',{
     templateUrl: '../../components/inputSelector/inputSelector.template.html',
     controller:['$scope',function ($scope) {
       var ctrl = this;
