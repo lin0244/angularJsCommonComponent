@@ -12,7 +12,7 @@ angular
   .module('menu')
   .component('ccMenu',{
     templateUrl: "../../components/menu/menu.template.html",
-    controller:['$scope','LOGO',function ($scope,LOGO) {
+    controller:['$scope','LOGO','SVG_ICON_LOCK','SVG_ICON_UNLOCK',function ($scope,LOGO,SVG_ICON_LOCK,SVG_ICON_UNLOCK) {
       var ctrl = this;
       $scope.logo = LOGO;
 

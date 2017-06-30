@@ -29,8 +29,13 @@
               "lock": false
             },
             {
-              "name":"机构份额",
+              "name":"CNABS指数",
               "url" :"https://www.cn-abs.com/Market/AssetSummaryV3.aspx"
+            },
+            {
+              "name":"观察名单",
+              "url" :"https://www.cn-abs.com/Market/AssetSummaryV3.aspx",
+              "lock":false
             }
           ]
         },
@@ -39,7 +44,7 @@
           "url" :"#",
           "children":[
             {
-              "name":"过期信息",
+              "name":"过会产品列表",
               "url" :"https://www.cn-abs.com/Market/MarketSummary.aspx"
             },
             {
@@ -49,6 +54,15 @@
             {
               "name":"证券列表",
               "url" :"https://www.cn-abs.com/Market/AssetSummaryV3.aspx"
+            },
+            {
+              "name":"我的关注",
+              "url" :"https://www.cn-abs.com/Market/AssetSummaryV3.aspx"
+            },
+            {
+              "name":"私有产品列表",
+              "url" :"https://www.cn-abs.com/Market/AssetSummaryV3.aspx",
+              "lock":false
             }
           ]
         },
@@ -57,8 +71,18 @@
           "url" :"#",
           "children":[
             {
-              "name":"机构列表",
+              "name":"机构份额",
               "url" :"https://www.cn-abs.com/Market/MarketSummary.aspx"
+            },
+            {
+              "name":"机构列表",
+              "url" :"https://www.cn-abs.com/Market/MarketSummary.aspx",
+              "lock":false
+            },
+            {
+              "name":"机构页面",
+              "url" :"https://www.cn-abs.com/Market/MarketSummary.aspx",
+              "lock":false
             }
           ]
         },
@@ -72,11 +96,13 @@
             },
             {
               "name":"评级跟踪",
-              "url" :"https://www.cn-abs.com/Market/AssetSummaryV2.aspx"
+              "url" :"https://www.cn-abs.com/Market/AssetSummaryV2.aspx",
+              "lock":true
             },
             {
               "name":"CNABS评分",
-              "url" :"https://www.cn-abs.com/Market/AssetSummaryV3.aspx"
+              "url" :"https://www.cn-abs.com/Market/AssetSummaryV3.aspx",
+              "lock":false
             }
           ]
         }

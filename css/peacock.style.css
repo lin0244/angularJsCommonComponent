@@ -288,6 +288,7 @@ div.menu-wrapper [part=categories] [part=secondary_categories] [part=secondary_c
   text-decoration: none;
   font-size: 13px;
   transition: all 0.15s ease-in;
+  color: #d6d6d6;
 }
 .menu-wrapper [part=categories] [part=secondary_categories] [part=third_categories] a:hover {
   color: #ffc446;
@@ -376,7 +377,7 @@ div.menu-wrapper [part=login_out] [part=logged] [part=user-right]:last-child {
   border-right: none;
 }
 .menu-wrapper [part=login_out] [part=logged] [part=user-right] a {
-  color: #fff;
+  color: #d6d6d6;
   text-decoration: none;
   font-size: 13px;
   transition: all 0.15s ease-in;
@@ -434,4 +435,11 @@ div.menu-wrapper [part=login_out] [part=logged] [part=user-right]:last-child {
   font-size: 16px;
   color: #ffc446;
   text-decoration: none;
+}
+.menu-wrapper [part=login_out] svg,
+.menu-wrapper [part=third_categories] svg {
+  width: 13px;
+  height: 13px;
+  margin-left: 5px;
+  fill: #d6d6d6;
 }
